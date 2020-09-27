@@ -1,4 +1,4 @@
-RANK;Country;Overall score;Electoral process and pluralism full democracies;Functioning of government;Political participation;Political culture;Civil liberties;
+﻿RANK;Country;Overall score;Electoral process and pluralism full democracies;Functioning of government;Political participation;Political culture;Civil liberties;
 1;Norway;9.93;10.00;9.64;10.00;10.00;10.00;
 2;Iceland  ;9.50;10.00;8.93;8.89;10.00;9.71;
 3;Sweden;9.39;9.58;9.64;8.33;10.00;9.41;
@@ -120,7 +120,7 @@ RANK;Country;Overall score;Electoral process and pluralism full democracies;Func
 119;Niger;3.96;6.25;1.14;3.33;4.38;4.71;
 120;Armenia;3.88;4.33;2.86;4.44;1.88;5.88;
 121;Kuwait;3.85;3.17;4.29;3.89;4.38;3.53;
-122;Cote d?Ivoire;3.81;3.42;2.86;3.33;5.63;3.82;
+122;Cote d’Ivoire;3.81;3.42;2.86;3.33;5.63;3.82;
 123;Gabon;3.74;2.58;2.21;4.44;5.63;3.82;
 124;Comoros;3.71;4.33;2.21;4.44;3.75;3.82;
 125;Ethiopia;3.60;0.00;3.57;5.56;5.63;3.24;
