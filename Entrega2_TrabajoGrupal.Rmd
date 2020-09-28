@@ -1,0 +1,196 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+### ENTREGA 2 - TRABAJO GRUPAL
+## Johan Albinagorta Cabello
+
+#Libreria
+
+```{r}
+
+library(htmltab)
+library(readr)
+library(stringr)
+library(rio)
+
+```
+
+## ECONOMIC FREEDOM INDEX 2016
+
+#Enviar data desde GitHub
+
+```{r}
+
+linkdata1 = "https://github.com/joalbinagorta/estadistica2/raw/master/data_economicfreedom2016.csv"
+free=import(linkdata1)
+
+dim(free)
+head(free)
+View(free)
+
+```
+
+
+#En esta ocasión solo se usará la variable «integridad_gubernamental»
+
+```{r}
+
+names(free)[names(free)=='Name']='Pais'
+names(free)[names(free)=='Government Integrity']='integridad_gubernamental'
+
+head(free)
+
+```
+
+
+#Veremos si hay existencia de NA's
+
+```{r}
+
+free[!complete.cases(free),]
+
+```
+
+
+#Eliminarémos las variables que veamos que no van a servir para la investigación.
+
+```{r}
+
+free$`Index Year`=NULL
+free$`Overall Score`=NULL
+free$`Property Rights`=NULL
+free$`Government Spending`=NULL
+free$`Judicial Effectiveness`=NULL
+free$`Tax Burden`=NULL
+free$`Fiscal Health`=NULL
+free$`Business Freedom`=NULL
+free$`Labor Freedom`=NULL
+free$`Monetary Freedom`=NULL
+free$`Trade Freedom`=NULL
+free$`Investment Freedom`=NULL
+free$`Financial Freedom`=NULL
+
+head(free)
+
+```
+
+
+#Para convertirlas en numéricas
+
+```{r}
+
+free$integridad_gubernamental <-as.numeric(as.character(free$integridad_gubernamental))
+
+
+```
+
+
+#Finalmente ver la tabla «free»
+
+```{r}
+
+View(free)
+
+```
+
+
+
+## DEMOCRACY INDEX 2016
+
+#Enviar data desde Excel
+
+```{r}
+
+linkdata2="https://github.com/joalbinagorta/estadistica2/raw/master/data_democracyindex2016.xlsx"
+democracy=import(linkdata2)
+
+dim(democracy)
+head(democracy)
+View(democracy)
+
+```
+
+
+#Usando la variable «índice_democracia»
+
+```{r}
+
+names(democracy)[names(democracy)=='Country']='Pais'
+names(democracy)[names(democracy)=='Overall score']='indice_democracia'
+
+View(democracy)
+
+```
+
+
+#Observar si existen NA’s
+
+```{r}
+
+democracy[!complete.cases(democracy),]
+
+```
+
+
+#Eliminando variables que no se utilizarán en la investigación
+
+```{r}
+
+democracy$`Electoral process and pluralism full democracies`=NULL
+democracy$`Functioning of government`=NULL
+democracy$`Political participation`=NULL
+democracy$`Political culture`=NULL
+democracy$`Civil liberties`=NULL
+
+head(democracy)
+View(democracy)
+
+```
+
+
+#Renombrando países
+
+```{r}
+
+democracy[democracy$Pais=="North Corea", 'Pais']="North Korea"
+
+```
+
+
+#Convertir variable en numérica y ver el resultado final de la tabla «democracy»
+
+```{r}
+
+democracy$indice_democracia <-as.numeric(as.character(democracy$indice_democracia))
+
+View(democracy)
+
+```
+
+
+
+## MERGE
+
+#Realizaremos merge
+
+```{r}
+
+names(free)
+names(democracy)
+
+```
+
+```{r}
+
+finaldata=merge(free,democracy)
+str(finaldata)
+
+View(finaldata)
+
+```
+
+
+
+
